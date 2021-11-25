@@ -1,0 +1,14 @@
+{
+  "name": "woke-blocker",
+  "version": "0.0.1",
+  "description": "Block woke content on the web",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "WTFPL",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
