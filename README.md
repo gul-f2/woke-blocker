@@ -4,7 +4,7 @@ This a webextension to block woke content on the web.
 
 **Features:**
 
-- it remove "Cancel" buttons
+- it removes "Cancel" buttons
 - more features soon
 
 ## License
