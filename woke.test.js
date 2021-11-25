@@ -1,10 +1,34 @@
 const { replaceWokeContent } = require('./woke');
 
-test('Replace woke content', () => {
-  const dom = (new DOMParser()).parseFromString('<button>Cancel</button>', 'text/html');
+const tests = [
+  {
+    inputHTML: '<button>Cancel</button>',
+    expectedHTML: '<button hidden="">Cancel</button>'
+  },
+  {
+    inputHTML: '<button>cancel</button>',
+    expectedHTML: '<button hidden="">cancel</button>'
+  },
+  {
+    inputHTML: '<button>cancel test</button>',
+    expectedHTML: '<button hidden="">cancel test</button>'
+  },
+  {
+    inputHTML: '<button>OK</button>',
+    expectedHTML: '<button>OK</button>'
+  },
+  {
+    inputHTML: '<button>OK</button><button>cancel</button>',
+    expectedHTML: '<button>OK</button><button hidden="">cancel</button>'
+  },
+];
 
-  replaceWokeContent(dom);
+tests.forEach(({ inputHTML, expectedHTML }) => {
+  test(`replaceWokeContent`, () => {
+    const dom = (new DOMParser()).parseFromString(inputHTML, 'text/html');
 
-  expect(dom.body.innerHTML).toEqual('<button hidden=\"\">Cancel</button>');
+    replaceWokeContent(dom);
+
+    expect(dom.body.innerHTML).toEqual(expectedHTML);
+  });
 });
-
