@@ -10,5 +10,8 @@
   "license": "WTFPL",
   "devDependencies": {
     "jest": "^27.3.1"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
