@@ -7,4 +7,8 @@ function replaceWokeContent(dom) {
   });
 }
 
-module.exports = { replaceWokeContent };
+if (typeof module !== "undefined") {
+  module.exports = { replaceWokeContent };
+} else {
+  replaceWokeContent(document);
+}
